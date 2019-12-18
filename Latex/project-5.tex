@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.4 (15/5/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside,twocolumn]{article}
+
+%\usepackage{booktabs,caption}
+\usepackage[flushleft]{threeparttable}
+\usepackage{graphicx}
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt, left= 2.35cm, right = 2.35cm, footskip = 2cm]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float}
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+%\fancyhead[C]{Running title $\bullet$ May 2016 $\bullet$ Vol. XXI, No. 1} % Custom header text
+\fancyfoot[RO,RE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\huge\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{Model for the solar system using ordinary differential equations } % Article title
+
+\author{%
+\textsc{Andreas Fagerheim}\thanks{\url{https://github.com/AndreasFagerheim/Project-4}} \\[1ex] % Your name
+\normalsize Department of Physics, University of Oslo, Norway \\ % Your institution
+%\normalsize \href{mailto:john@smith.com}{john@smith.com} % Your email address
+%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
+%\normalsize University of Utah \\ % Second author's institution
+%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
+}
+\date{\today} % Leave empty to omit a date
+
+%---------------------------------------------------------------------------------------
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+
+This article constructs a model for simulating the solar system. The Forward Euler and velocity Verlot methods will be used to solve the ordinary differential equations that describes the system. Taking an object oriented approach to implementation of the code makes for an more affordable task of expanding the system.
+
+
+\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+
+%------------------------------------------------
+\section{Theory}
+
+
+%------------------------------------------------
+%------------------------------------------------
+\section{Algorithms}
+\subsection{Euler Forward algorithm}
+
+\begin{equation}
+\vec{  x_{i+1}} = \vec{x_{i}} + h \vec{v_i}
+\end{equation}
+and
+\begin{equation}
+\vec{  v_{i+1}} = \vec{v_{i}} + h \vec{a_i}
+\end{equation}
+
+\subsection{Verlet method}
+\begin{equation}\label{eq:verlet1}
+ x_{i+1} =x_{i}+ h x_{i}^{(1)} +\frac{h^2}{2} x_{i}^{(2)} + O(h^3)
+\end{equation}
+and
+\begin{equation} \label{eq:verlet2}
+v_{i+1} =v_{i}+ h v_{i}^{(1)}+\frac{h^2}{2} v_{i}^{(2)} + O(h^3)
+\end{equation}
+Here we know all values except the second derivative of the velocity. By Taylor expansion of the first derivative of velocity:
+
+\[
+v_{i+1}^{(1)} =v_{i}^{(1)}+ h v_{i}^{(2)} + O(h^2)
+\] 
+\[
+hv_{i}^{(2)} \approx v_{i+1}^{(1)}-  v_{i}^{(1)}
+\] 
+Using this and we can rewrite equations \ref{eq:verlet1} and \ref{eq:verlet2} containing only known values;
+\begin{equation}
+x_{i+1} =x_{i}+ h v_{i} +\frac{h^2}{2} v_{i}^{(1)} + O(h^3)
+\end{equation}
+and
+\begin{equation}
+v_{i+1} =v_{i}+ \frac{h}{2} \left( v_{i+1}^{(1)}+v_{i}^{(1)} \right)+ O(h^3)
+\end{equation}
+Due to $v_{i+1}^{(1)}$ being dependent on $x_{i+1}$ calculating position at updated time ($t_{i+1}$) is necessary for calculating the new velocity. In pseudo code this will look somthing like the figure below.
+%------------------------------------------------
+%------------------------------------------------
+
+\section{Results}
+
+
+
+
+
+
+\section{Conclusion}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+
+\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+%A statement requiring citation \cite{Hjorth-Jensen:2015dg}.
+\bibitem[Hjorth-Jensen, 2015]{Hjorth-Jensen:2015dg}
+Hjort-Jensen, M. (2015).
+\newblock Computational Physics.
+\bibitem[Hjorth-Jensen]{Hjorth-Jensen}
+Hjort-Jensen, M.
+\newblock https://github.com/CompPhysics/ComputationalPhysics
+
+ 
+\end{thebibliography}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
