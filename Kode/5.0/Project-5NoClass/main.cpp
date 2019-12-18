@@ -8,10 +8,10 @@ using namespace arma;
 
 
 
-void eulerChromer(mat &pos, mat &has);
-void eulerChromer(vec &posX,vec &posY,vec &posZ,vec &hasX,vec &hasY,vec &hasZ);
+void eulerForward(mat &pos, mat &has);
+void eulerForward(vec &posX,vec &posY,vec &hasX,vec &hasY, int i, double h);
 void verlet(mat &pos, mat &has);
-void verlet(vec &posX,vec &posY,vec &posZ,vec &hasX,vec &hasY,vec &hasZ);
+void verlet(vec &posX,vec &posY,vec &hasX,vec &hasY);
 
 int main(int argc, char *argv[])
 {
@@ -27,12 +27,11 @@ int main(int argc, char *argv[])
     vec posY = zeros<vec>(n);
     vec hasY = zeros<vec>(n);
 
-    vec posZ = zeros<vec>(n);
-    vec hasZ = zeros<vec>(n);
+
 
     //matriser test
-    mat pos = zeros<mat>(n,3);
-    mat has = zeros<mat>(n,3);
+    mat pos = zeros<mat>(n,2);
+    mat has = zeros<mat>(n,2);
 
     //setter opp vector for tid
     vec t = zeros<vec>(n);
@@ -48,6 +47,48 @@ int main(int argc, char *argv[])
 }
 
 
-void eulerChromer(vec &posX, vec &posY, vec &posZ){
+void eulerForward(vec &posX, vec &posY,vec &hasX, vec &hasY, int n, double dt, double masse ){
+    double dis, a;
+    double massePI = masse*4*(4*atan(1)*4*atan(1));
+    for(int i = 0;i<(n-1);i++){
+        dis = sqrt(posX[i]*posX[i] +posY[i]*posY[i]);
+        a = - (massePI)/(dis*dis*dis);
+        //x-komponent
+        hasX[i+1] = hasX[i] + dt* a*posX[i];
+        posX[i+1] = posX[i] + dt*hasX[i];
+        //y-komponent
+        hasY[i+1] = hasY[i] + dt* a*posY[i];
+        posY[i+1] = posY[i] + dt*hasY[i];
+    }
+}
+void verlet(vec &posX, vec &posY,vec &hasX, vec &hasY, int n, double dt, double masse ){
+    double dis, a;
+    double massePI = masse*4*(4*atan(1)*4*atan(1));
+    for(int i = 0; i<(n-1);i++){
+        dis = sqrt(posX[i]*posX[i] +posY[i]*posY[i]);
+        a = - (massePI)/(dis*dis*dis);
+        //x-komponent
+        posX[i+1] = posX[i] + dt*hasX[i]+ 0.5*(dt*dt*a*posX[i]);
+        hasX[i+1] = hasX[i] + 0.5*dt* (a*(posX[i]+posX[i+1]));
+        //y-komponent
+        posY[i+1] = posY[i] + dt*hasY[i]+ 0.5*(dt*dt*a*posY[i]);
+        hasY[i+1] = hasY[i] + 0.5*dt* (a*(posY[i]+posY[i+1]));
+    }
+}
 
+void toFile(string filNavn, vec x, vec y, vec t,int n){
+    ofstream outfile;
+    outfile.open(filNavn);
+    if(outfile.is_open()){
+        cout<<"writing to file..."<<endl;
+        outfile <<"t"<<"x"<<"y"<<endl;
+        for(int j=0;j<n;j++){
+            outfile <<t[j]<<x[j]<<y[j]<<endl;
+        }
+    }else{
+        cout<<"could not open file"<<filNavn<<endl;
+        exit(1);
+    }
+    outfile.close();
+    cout<<"done writing to file"<<endl;
 }
