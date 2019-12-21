@@ -18,7 +18,7 @@ void toFile(string filNavn, vec x, vec y, vec t,int n);
 int main(int argc, char *argv[])
 {
     double start = 0;
-    double stop = 1;
+    double stop = 1.0;
     int n = atoi(argv[1]);
     double dt = (stop-start)/(n);
     cout<< "dt = "<<dt<<endl;
@@ -51,10 +51,10 @@ int main(int argc, char *argv[])
 
     // starte beregninger av posisjon til jorden med solen stille i sentrum.
     eulerForward(posX,posY,hasX,hasY,n,dt,masse);
-    toFile("EulerForward.txt",posX,posY,t,n);
-
+    string path = "C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/EulerForward.txt";
+    toFile(path,posX,posY,t,n);
     verlet(posX,posY,hasX,hasY,n,dt,masse);
-    toFile("Verlet.txt",posX,posY,t,n);
+    toFile("C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verlet.txt",posX,posY,t,n);
     cout<<"Ferdig beregnet!"<<endl;
     return 0;
 }
@@ -111,7 +111,7 @@ void toFile(string filNavn, vec x, vec y, vec t,int n){
         outfile <<"t"<<setw(15) <<"x"<<setw(15) <<"y"<<endl;
         outfile <<setprecision(10);
         for(int j=0;j<n;j++){
-            outfile << setw(5)<<t[j]<<" " << setw(15) << x[j] << setw(15)<< y[j] << endl;
+            outfile << setw(5)<<t[j]<<" " << setw(15) << x[j]<<" " << setw(15)<< y[j] << endl;
         }
     }else{
         cout<<"could not open file"<<filNavn<<endl;
