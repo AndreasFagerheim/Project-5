@@ -20,18 +20,18 @@ Integrand::Integrand(double dt, bool euler){
 void Integrand::intEtSteg(class Univers &univers){
     if(bEuler){
         Integrand::intEtStegEuler(univers);
-        cout <<"Forward Euler chosen"<<endl;
+        //cout <<"Forward Euler chosen"<<endl;
     }else{
         Integrand::intEtStegVerlet(univers);
-        cout <<"Verlet chosen"<<endl;
+        //cout <<"Verlet chosen"<<endl;
     }
 }
 
 void Integrand::intEtStegEuler(class Univers &univers){
     univers.finnKraftEnergi();
     for(Legemer &legeme : univers.getLegemer()){
-        legeme.posisjon = legeme.posisjon + tidsSteg*legeme.hastighet;  // s[i+1] = s[i]+dt*v[i]
-        legeme.hastighet = legeme.hastighet + (legeme.kraft/legeme.masse) *tidsSteg;   // v[i+1] = v[i]+a[i]*dt,    f= ma;
+        legeme.posisjon +=  tidsSteg*legeme.hastighet;  // s[i+1] = s[i]+dt*v[i]
+        legeme.hastighet +=  (legeme.kraft/legeme.masse) *tidsSteg;   // v[i+1] = v[i]+a[i]*dt,    f= ma;
     }
     // hvis systemet har solen i ro i sentrum settes posisjonen til (0,0,0)
     if(univers.isSunFixed()){
@@ -43,12 +43,12 @@ void Integrand::intEtStegEuler(class Univers &univers){
 void Integrand::intEtStegVerlet(class Univers &univers){
 
     for(Legemer &legeme:univers.getLegemer()){
-        legeme.posisjon = legeme.posisjon+legeme.hastighet*tidsSteg+0.5*tidsSteg2*(legeme.kraft/legeme.masse);
+        legeme.posisjon += legeme.hastighet*tidsSteg+0.5*tidsSteg2*(legeme.kraft/legeme.masse);
         //s[i+1] = s[i}+v[i]*dt+0.5*dt*dt(a[i])
     }
     univers.finnKraftEnergi();
     for(Legemer &legeme:univers.getLegemer()){
-        legeme.hastighet= legeme.hastighet+0.5*tidsSteg*(legeme.kraft+legeme.pKraft)/legeme.masse;
+        legeme.hastighet+= 0.5*tidsSteg*(legeme.kraft+legeme.pKraft)/legeme.masse;
         //v[i+1] = v[i] +0.5*dt*(a[i]+a[i-1])
     }
 

@@ -38,7 +38,7 @@
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{float}
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
-
+\usepackage{algpseudocode} %for pseudocode
 \usepackage{enumitem} % Customized lists
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
 
@@ -101,16 +101,35 @@ This article constructs a model for simulating the solar system. The Forward Eul
 
 \section{Introduction}
 
-
+The system modelled is only affected by the gravitational force between the planets. For this we use Newton's law of gravitation given by:
+\begin{equation}
+F_G=\frac{GM_{\odot}M_{\mathrm{Earth}}}{r^2}
+\end{equation}
 %------------------------------------------------
 \section{Theory}
 
-
+\subsection{Escape velocity}
+It is interesting looking at what the velocity of earth has to be for it to leave its orbit around the sun. This happens when the potential energy equals the kinetic energy. This leads to the equation;
+\begin{equation}
+0.5M_1v_{escape}^2 = G\frac{M_1M_2}{r}
+\end{equation}
+\begin{equation}
+v_{escape}= \sqrt{\frac{2GM}{r}} 
+\end{equation}
+For a system consisting of just the sun and Earth the Earth's escape velocity will be:
+\begin{equation}
+v_{escape}= \sqrt{\frac{2(4\pi^2 (AU^3/year^2))}{1 (AU)}} = 2\pi \sqrt{2} (AU/year)
+\end{equation}
 %------------------------------------------------
 %------------------------------------------------
 \section{Algorithms}
+The methods for integrating the system has it offspring from Taulor expansion of functions. 
+\[
+f(x+h) = f(x) +h\frac{df}{dx}(x)+\frac{1}{2!}\frac{d^2f}{dx^2}(x) +..
+\]
+One of the methods (Euler Forward) make use of the two first terms in the Taylor expansion while Velocity Verlet uses three terms. 
 \subsection{Euler Forward algorithm}
-
+Euler Forward then defines the approximation for next value to be
 \begin{equation}
 \vec{  x_{i+1}} = \vec{x_{i}} + h \vec{v_i}
 \end{equation}
@@ -119,7 +138,19 @@ and
 \vec{  v_{i+1}} = \vec{v_{i}} + h \vec{a_i}
 \end{equation}
 
+\begin{algorithmic}[H]
+
+\For {i= 0,1,.., n-1}
+\State find $a$ from forces
+\State then compute velocity and position
+\State $\vec{  x_{i+1}} = \vec{x_{i}} + h \vec{v_i}$
+\State $\vec{  v_{i+1}} = \vec{v_{i}} + h \vec{a_i}$
+\EndFor
+\end{algorithmic}
+By using this algorithm the calculation consist of 4 FLOPS (2 in each calculation of next velocity and position). The error is $O(h^2)$ for both $ \vec{  x_{i+1}}$ and $\vec{  x_{i+1}}$. Euler Forward can therefore be said to trade of its low cost in nedd of power for calculations (4 FLOPS) for a lower precision.
+
 \subsection{Verlet method}
+Velocity Verlet make use of three terms, as earlier stated;
 \begin{equation}\label{eq:verlet1}
  x_{i+1} =x_{i}+ h x_{i}^{(1)} +\frac{h^2}{2} x_{i}^{(2)} + O(h^3)
 \end{equation}
@@ -143,16 +174,59 @@ and
 \begin{equation}
 v_{i+1} =v_{i}+ \frac{h}{2} \left( v_{i+1}^{(1)}+v_{i}^{(1)} \right)+ O(h^3)
 \end{equation}
-Due to $v_{i+1}^{(1)}$ being dependent on $x_{i+1}$ calculating position at updated time ($t_{i+1}$) is necessary for calculating the new velocity. In pseudo code this will look somthing like the figure below.
+Due to $v_{i+1}^{(1)}$ being dependent on $x_{i+1}$ calculating position at updated time ($t_{i+1}$) is necessary for calculating the new velocity.WE also know that $v_{i}^{(1)} = a_i $. In pseudo code this will look somthing like the figure below.
+\begin{algorithmic}[H]
+\For {i= 0,1,.., n-1}
+\State find $a$ from forces
+\State then compute velocity and position
+\State $\vec{  x_{i+1}} = \vec{x_{i}} + h \vec{v_i}+\frac{h^2}{2}\vec{a_i}$
+\State $\vec{  v_{i+1}} = \vec{v_{i}} + \frac{h}{2} (\vec{a_{i+1}}+\vec{a_i})$
+\EndFor
+This algorithm has 9 FLOPS in its calculation (5 FLOPS for position and 4 FLOPS for velocity). The strenght of the method is instead its local error witch is in order $O(h^3)$.
+\end{algorithmic}
 %------------------------------------------------
 %------------------------------------------------
 
 \section{Results}
+\textbf{Figure} \textbf{1} and \textbf{2} show plots of the precision of the algorithms as a function of $\Delta t$. The plot is the position over 1 year for all of the different $\Delta t$. For Euler the precision could say to be low and a loss of stability to occur when $\Delta t$ is not small enough. The velocity Verlot seems to achieve great precision and stability for $\Delta t = 0.01$ and is superior to Euler in this aspect as expected.
+ 
+\begin{figure}[H]  \includegraphics[width= 8.7cm]{C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityEuler.png}
+  \caption{Stability plot of the Euler Forward method as a function of $\Delta t$.}
+  \label{fig:boat1}
+\end{figure}
+\begin{figure}[H]  \includegraphics[width= 8.7cm]{C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerlet.png}
+  \caption{Stability plot of the velocity Verlot method as a function of $\Delta t$.}
+  \label{fig:boat2}
+\end{figure}
+
+\subsection{Energy}
+
+The energy is relatily conserved taking in to account the distance is in AU and speed in AU/year. Figure 3-6 show that the changes are minimal through the year.
+\begin{figure}[H]  \includegraphics[width= 8.7cm]{C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerKinetisk.png}
+  \caption{The kinetic energy for the system over a year calculated using Eulrer Forward method with 10000 iterations}
+  \label{fig:boat2}
+\end{figure}
+\begin{figure}[H]  \includegraphics[width= 8.7cm]{C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskVerlet.png}
+  \caption{The kinetic energy for the system over a year calculated using Velocity Verlet method with 10000 iterations}
+  \label{fig:boat2}
+\end{figure}
+\begin{figure}[H]  \includegraphics[width= 8.7cm]{C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerPotensiel.png}
+  \caption{The potensial energy for the system over a year calculated using Euler Forward method with 10000 iterations}
+  \label{fig:boat2}
+\end{figure}
+\begin{figure}[H]  \includegraphics[width= 8.7cm]{C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPotensiel.png}
+  \caption{The potensial energy for the system over a year calculated using Velocity Verlot method with 10000 iterations}
+  \label{fig:boat2}
+\end{figure}
 
 
+\subsection{Escape velocity for earth}
 
-
-
+The esacpe velocity for earth orbiting the sun was earlier found to be $v_e = 2\pi \sqrt{2} (AU/year)$ and looking at Figure 7 this is close to $V = 2.82\pi$ which also seem to escape the orbit of the sun.
+\begin{figure}[H]  \includegraphics[width= 8.7cm]{C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape40.png}
+  \caption{Plot of Earth orbit with different start veloceties (V. The plot is over a period of 40 years.}
+  \label{fig:boat2}
+\end{figure}
 
 \section{Conclusion}
 

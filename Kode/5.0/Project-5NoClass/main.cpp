@@ -31,8 +31,6 @@ int main(int argc, char *argv[])
     vec posY = zeros<vec>(n);
     vec hasY = zeros<vec>(n);
 
-
-
     //matriser test
     mat pos(n,2);
     mat has(n,2);
@@ -56,6 +54,37 @@ int main(int argc, char *argv[])
     verlet(posX,posY,hasX,hasY,n,dt,masse);
     toFile("C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verlet.txt",posX,posY,t,n);
     cout<<"Ferdig beregnet!"<<endl;
+
+    //sjekkestabilitet som funksjon av dt oppgave b)
+    vec antallSteg = {10,100,500,1000,10000}; //antall steg
+    dt = (start-stop)/n;
+    double steg = 1/10.;
+    for(int k = 0;k<5;k++){
+        vec t2 = zeros<vec>(antallSteg(k));
+
+        steg = 1./antallSteg(k);
+        t2[k] = k*steg;
+        eulerForward(posX,posY,hasX,hasY,antallSteg(k),steg,masse);
+        ostringstream path ;
+        path <<"C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/EulerForward"<<steg<<".txt";
+        toFile(path.str(),posX,posY,t2,antallSteg(k));
+
+        verlet(posX,posY,hasX,hasY,antallSteg(k),steg,masse);
+        ostringstream path2 ;
+        path2 <<"C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verlet"<<steg<<".txt";
+        toFile(path2.str(),posX,posY,t2,antallSteg(k));
+    }
+    double pi = 4*atan(1);
+    vec startfartY = {2.6*pi,2.7*pi,2.8*pi,2.82*pi,2.9*pi};
+    for(int i= 0;i<5;i++){
+        cout<<"escaping?"<<endl;
+        hasY[0] = startfartY(i);
+        verlet(posX,posY,hasX,hasY,n,dt,masse);
+        ostringstream path3 ;
+        path3 <<"C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verletUnslippe"<<i<<".txt";
+        toFile(path3.str(),posX,posY,t,n);
+
+    }
     return 0;
 }
 

@@ -25,23 +25,23 @@ public:
 
 
     // Metoder for å finne status for universet
+    // mulignes sette disse til virtual for å kunne endre dem i sub-klasser
     void finnKraftEnergiTo();
     void finnKraftEnergi();
     void finnAngMoment();
 
     //getters for ulike verdier(const = read only)
-    double      totEnergi() const;
+    double      getTotEnergi() const;
     double      getKinetiskEnergi() const;
     double      getPotensiellEnergi() const;
     double      getAngMoment() const;
     int         getAntallLegemer() const;
     bool        isSunFixed() const;
     std::vector<Legemer> &getLegemer();
-
-
+    ofstream filUnivers;
+    void setSunFixed(bool fixedSun);
     void skrivTilFil(string filNavn);
-
-
+    void closeFile();
 
 };
 
