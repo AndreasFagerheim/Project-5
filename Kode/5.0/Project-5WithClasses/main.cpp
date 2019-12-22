@@ -101,6 +101,8 @@ int main()
 
     universet->closeFile();
     filEnergi.close();
+    Integrand *integrandVerlet = new Integrand(dt, false);
+
     cout<<"Finished!"<<endl;
     return 0;
 }
