@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.16)  22 DEC 2019 23:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.11.16)  22 DEC 2019 23:50
 entering extended mode
 **./project-5.tex
 (project-5.tex
@@ -744,91 +744,76 @@ t/10 []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 AU\OT1/zplm/m/n/10 /\OML/zplm/m/it/
 
 ]
 <C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityEuler.png
-, id=69, 433.62pt x 289.08pt>
+, id=73, 433.62pt x 289.08pt>
 File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityEule
 r.png Graphic file (type png)
 <use C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityEuler
 .png>
 Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/No
-Class/stabilityEuler.png  used on input line 193.
-(pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
-
-Overfull \hbox (17.25552pt too wide) in paragraph at lines 193--194
-[][] 
- []
-
-LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
-(Font)              Font shape `T1/pplx/b/n' tried instead on input line 194.
-<C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerlet.pn
-g, id=71, 433.62pt x 289.08pt>
-File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerl
-et.png Graphic file (type png)
-<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerle
-t.png>
-Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/No
-Class/stabilityVerlet.png  used on input line 197.
+Class/stabilityEuler.png  used on input line 197.
 (pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
 
 Overfull \hbox (17.25552pt too wide) in paragraph at lines 197--198
 [][] 
  []
 
+LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 198.
+<C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerlet.pn
+g, id=75, 433.62pt x 289.08pt>
+File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerl
+et.png Graphic file (type png)
+<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerle
+t.png>
+Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/No
+Class/stabilityVerlet.png  used on input line 201.
+(pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
+
+Overfull \hbox (17.25552pt too wide) in paragraph at lines 201--202
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2 <C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityEuler
+.png>]
 <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerKinetisk.pn
-g, id=72, 433.62pt x 289.08pt>
+g, id=87, 433.62pt x 289.08pt>
 File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerKineti
 sk.png Graphic file (type png)
 <use C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerKinetis
 k.png>
 Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Cl
-ass/plotEulerKinetisk.png  used on input line 205.
-(pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
-
-Overfull \hbox (17.25552pt too wide) in paragraph at lines 205--206
-[][] 
- []
-
-<C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskVerlet.p
-ng, id=73, 433.62pt x 289.08pt>
-File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskVer
-let.png Graphic file (type png)
-<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskVerl
-et.png>
-Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Cl
-ass/plotKinetiskVerlet.png  used on input line 209.
+ass/plotEulerKinetisk.png  used on input line 209.
 (pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
 
 Overfull \hbox (17.25552pt too wide) in paragraph at lines 209--210
 [][] 
  []
 
-
-Underfull \vbox (badness 2418) has occurred while \output is active []
-
- [2 <C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityEuler
-.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVer
-let.png>]
-<C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerPotensiel.p
-ng, id=87, 433.62pt x 289.08pt>
-File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerPotens
-iel.png Graphic file (type png)
-<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerPotensi
-el.png>
+<C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskVerlet.p
+ng, id=88, 433.62pt x 289.08pt>
+File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskVer
+let.png Graphic file (type png)
+<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskVerl
+et.png>
 Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Cl
-ass/plotEulerPotensiel.png  used on input line 213.
+ass/plotKinetiskVerlet.png  used on input line 213.
 (pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
 
 Overfull \hbox (17.25552pt too wide) in paragraph at lines 213--214
 [][] 
  []
 
-<C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPotensiel.
-png, id=88, 433.62pt x 289.08pt>
-File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPoten
-siel.png Graphic file (type png)
-<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPotens
-iel.png>
+<C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerPotensiel.p
+ng, id=89, 433.62pt x 289.08pt>
+File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerPotens
+iel.png Graphic file (type png)
+<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerPotensi
+el.png>
 Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Cl
-ass/plotVerletPotensiel.png  used on input line 217.
+ass/plotEulerPotensiel.png  used on input line 217.
 (pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
 
 Overfull \hbox (17.25552pt too wide) in paragraph at lines 217--218
@@ -838,48 +823,62 @@ Overfull \hbox (17.25552pt too wide) in paragraph at lines 217--218
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape40.p
-ng, id=89, 433.62pt x 289.08pt>
-File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscap
-e40.png Graphic file (type png)
-<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape
-40.png>
-Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/No
-Class/velocityEscape40.png  used on input line 226.
+<C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPotensiel.
+png, id=90, 433.62pt x 289.08pt>
+File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPoten
+siel.png Graphic file (type png)
+<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPotens
+iel.png>
+Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/Cl
+ass/plotVerletPotensiel.png  used on input line 221.
 (pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
 
-Overfull \hbox (17.25552pt too wide) in paragraph at lines 226--227
+Overfull \hbox (17.25552pt too wide) in paragraph at lines 221--222
 [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3 <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerKinetis
-k.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKinetiskV
-erlet.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEuler
-Potensiel.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotV
-erletPotensiel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 243--245
+ [3 <C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/stabilityVerle
+t.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEulerKine
+tisk.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotKineti
+skVerlet.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotEu
+lerPotensiel.png>]
+<C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape40.p
+ng, id=103, 433.62pt x 289.08pt>
+File: C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscap
+e40.png Graphic file (type png)
+<use C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape
+40.png>
+Package pdftex.def Info: C:/Users/Andreas/Documents/Project 5/Project-5/Data/No
+Class/velocityEscape40.png  used on input line 230.
+(pdftex.def)             Requested size: 247.53888pt x 165.02873pt.
+
+Overfull \hbox (17.25552pt too wide) in paragraph at lines 230--231
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
 []\T1/pplx/m/n/10 (+20) Hjort-Jensen, M.
  []
 
 
-Overfull \hbox (46.76442pt too wide) in paragraph at lines 243--245
+Overfull \hbox (46.76442pt too wide) in paragraph at lines 247--249
 \T1/pplx/m/n/10 (-20) https://github.com/CompPhysics/ComputationalPhysics 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
-[4
-
- <C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape40.
-png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 255.
+[4 <C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotVerletPotensi
+el.png> <C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEs
+cape40.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 255.
  (project-5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 251.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 251.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 255.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 255.
 Package rerunfilecheck Info: File `project-5.out' has not changed.
-(rerunfilecheck)             Checksum: B79A594DEE538B6F622641F48E347F7D;548.
+(rerunfilecheck)             Checksum: 335FC1FBE8C7A8ECC27550D1D9337988;613.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -887,14 +886,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 251.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 255.
  ) 
 Here is how much of TeX's memory you used:
- 11499 strings out of 492450
- 183855 string characters out of 3119070
+ 11509 strings out of 492450
+ 183951 string characters out of 3119070
  324283 words of memory out of 3000000
- 15423 multiletter control sequences out of 15000+200000
- 61940 words of font info for 202 fonts, out of 3000000 for 9000
+ 15424 multiletter control sequences out of 15000+200000
+ 62386 words of font info for 208 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,12n,45p,489b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Andreas\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
@@ -914,9 +913,9 @@ rograms/MiKTeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb><C:/Users/Andreas/AppData
 s/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Use
 rs/Andreas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.p
 fb>
-Output written on project-5.pdf (4 pages, 270095 bytes).
+Output written on project-5.pdf (4 pages, 271368 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 46196 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 46204 words of extra memory for PDF output out of 51595 (max. 10000000)
 
