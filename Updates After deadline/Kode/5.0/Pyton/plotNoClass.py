@@ -16,7 +16,7 @@ def Read_three_Column_File(file_name):
     return t,posX,posY
 
 plt.figure()
-t,x,y = Read_eight_Column_File('C:\Users\Andreas\Documents\Project 5\Project-5\Kode\5.0\build-Project-5NoCLass-Desktop_Qt_5_13_2_MinGW_64_bit-Debug\EulerForward.txt')
+t,x,y = Read_eight_Column_File('C:\Users\Andreas\Documents\Project 5\Project-5\Updates After deadline\Kode\5.0\build-Project-5NoCLass-Desktop_Qt_5_13_2_MinGW_64_bit-Debug\EulerForward.txt')
 
 
 #plt.xlim(-2,-1.6)

@@ -23,14 +23,14 @@ def Read_three_Column_File(file_name):
     return t,posX,posY
 
 plt.figure()
-t,x,y = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/EulerForward.txt')
-t,x2,y2 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verlet.txt')
+t,x,y = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/EulerForward.txt')
+t,x2,y2 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verlet.txt')
 plt.plot(x,y,label="euler")
 plt.plot(x2,y2, label="verlet")
 plt.legend(bbox_to_anchor=(0.8, 1), loc='upper left', borderaxespad=0.)
 plt.title("\n".join(wrap('Orbit of Earth around the sun at rest', 60)))
 plt.ylabel('Y-position [AU]')
 plt.xlabel('X-position [AU]')
-plt.savefig('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/plotXYpos.png')
+plt.savefig('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/plotXYpos.png')
 plt.show()
 plt.figure()

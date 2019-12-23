@@ -30,8 +30,8 @@ def Read_six_Column_File(file_name):
     return posX,posY
 
 plt.figure()
-x,y = Read_six_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/SolJordFixedEuler.txt')
-x2,y2 = Read_six_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/SolJordFixedVerlet.txt')
+x,y = Read_six_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/Class/SolJordFixedEuler.txt')
+x2,y2 = Read_six_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/Class/SolJordFixedVerlet.txt')
 plt.plot(x,y,label="euler")
 plt.plot(x2,y2, label="verlet")
 plt.legend(bbox_to_anchor=(0.8, 1), loc='upper left', borderaxespad=0.)
@@ -39,6 +39,6 @@ plt.title("\n".join(wrap('Orbit of Earth around the sun at rest', 60)))
 plt.ylabel('Y-position [AU]')
 plt.xlabel('X-position [AU]')
 
-plt.savefig('C:/Users/Andreas/Documents/Project 5/Project-5/Data/Class/plotXYpos.png')
+plt.savefig('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/Class/plotXYpos.png')
 plt.show()
 plt.figure()

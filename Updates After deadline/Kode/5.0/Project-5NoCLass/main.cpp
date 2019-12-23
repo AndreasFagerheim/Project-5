@@ -49,10 +49,10 @@ int main(int argc, char *argv[])
 
     // starte beregninger av posisjon til jorden med solen stille i sentrum.
     eulerForward(posX,posY,hasX,hasY,n,dt,masse);
-    string path = "C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/EulerForward.txt";
+    string path = "C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/EulerForward.txt";
     toFile(path,posX,posY,t,n);
     verlet(posX,posY,hasX,hasY,n,dt,masse);
-    toFile("C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verlet.txt",posX,posY,t,n);
+    toFile("C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verlet.txt",posX,posY,t,n);
     cout<<"Ferdig beregnet!"<<endl;
 
     //sjekkestabilitet som funksjon av dt oppgave b)
@@ -66,12 +66,12 @@ int main(int argc, char *argv[])
         t2[k] = k*steg;
         eulerForward(posX,posY,hasX,hasY,antallSteg(k),steg,masse);
         ostringstream path ;
-        path <<"C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/EulerForward"<<steg<<".txt";
+        path <<"C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/EulerForward"<<steg<<".txt";
         toFile(path.str(),posX,posY,t2,antallSteg(k));
 
         verlet(posX,posY,hasX,hasY,antallSteg(k),steg,masse);
         ostringstream path2 ;
-        path2 <<"C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verlet"<<steg<<".txt";
+        path2 <<"C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verlet"<<steg<<".txt";
         toFile(path2.str(),posX,posY,t2,antallSteg(k));
     }
     double pi = 4*atan(1);
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
         hasY[0] = startfartY(i);
         verlet(posX,posY,hasX,hasY,n,dt,masse);
         ostringstream path3 ;
-        path3 <<"C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verletUnslippe"<<i<<".txt";
+        path3 <<"C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verletUnslippe"<<i<<".txt";
         toFile(path3.str(),posX,posY,t,n);
 
     }

@@ -24,11 +24,11 @@ def Read_three_Column_File(file_name):
 
 plt.figure()
 #euler ulike dt
-t,x,y = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verletUnslippe0.txt')
-t,x2,y2 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verletUnslippe1.txt')
-t,x3,y3 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verletUnslippe2.txt')
-t,x4,y4 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verletUnslippe3.txt')
-t,x5,y5 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/verletUnslippe4.txt')
+t,x,y = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verletUnslippe0.txt')
+t,x2,y2 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verletUnslippe1.txt')
+t,x3,y3 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verletUnslippe2.txt')
+t,x4,y4 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verletUnslippe3.txt')
+t,x5,y5 = Read_three_Column_File('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/verletUnslippe4.txt')
 
 
 #plt.plot(x,y,label="euler")
@@ -42,6 +42,6 @@ plt.title("\n".join(wrap('Earth movement with different start velocities over 40
 plt.ylabel('Y-position [AU]')
 plt.xlabel('X-position [AU]')
 #plt.savefig('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape40.png')
-plt.savefig('C:/Users/Andreas/Documents/Project 5/Project-5/Data/NoClass/velocityEscape.png')
+plt.savefig('C:/Users/Andreas/Documents/Project 5/Project-5/Updates After deadline/Data/NoClass/velocityEscape.png')
 plt.show()
 plt.figure()
